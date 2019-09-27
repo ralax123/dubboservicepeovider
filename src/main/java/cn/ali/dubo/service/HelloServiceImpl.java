@@ -9,10 +9,10 @@ import org.apache.zookeeper.Op;
  *   时候,@Service 注释掉
  */
 //@Service
-public class HelloServcieImpl implements HelloService {
+public class HelloServiceImpl implements HelloService {
 
     public String sayHello(String s) {
-        System.out.println("=======我被调用了====== name:" + s);
+        System.out.println("=======我被调用了222222====== name:" + s);
 
         return "hello " + s;
     }
