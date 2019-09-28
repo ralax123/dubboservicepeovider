@@ -16,4 +16,11 @@ public class HelloServiceImpl implements HelloService {
 
         return "hello " + s;
     }
+
+    public String sayBey(String s) {
+
+        System.out.println("=======我被调用了sayBey====== name:" + s);
+
+        return "sayBey " + s;
+    }
 }
