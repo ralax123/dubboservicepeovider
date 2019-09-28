@@ -16,19 +16,25 @@
 
     <!-- 注册  协议和port   端口默认是20880 -->
     <!--    这里是provider比consumer多的配置-->
-    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+    <dubbo:protocol name="dubbo" port="20880" serialization="fastjson"></dubbo:protocol>
 
-    <dubo:provider timeout="3000"  ></dubo:provider>
+    <dubo:provider timeout="3000"></dubo:provider>
 
     <!-- 扫描指定包，加入@Service注解的类会被发布为服务  -->
     <!--    <dubbo:annotation package="cn.ali.dubo.service" />-->
 
-    <dubbo:service interface="cn.ali.dubo.service.HelloService" ref="helloService2"  group="aa">
+    <dubbo:service interface="cn.ali.dubo.service.HelloService" ref="helloService2" group="aa">
         <!--        指定特定方法的超时时间-->
         <dubbo:method name="sayHello" timeout="4000"></dubbo:method>
     </dubbo:service>
 
     <bean id="helloService2" class="cn.ali.dubo.service.HelloServiceImpl"></bean>
+
+
+    <!--暴露第二个服务-->
+    <dubbo:service interface="cn.ali.dubo.service.LogService" ref="logService"></dubbo:service>
+
+    <bean id="logService" class="cn.ali.dubo.service.LogServiceImpl"></bean>
 
 
 </beans>
